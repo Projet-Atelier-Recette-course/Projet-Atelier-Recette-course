@@ -1,5 +1,5 @@
 /**
- * Catalogue complet des recettes pour l'application MyCulina
+ * Catalog complet des recettes pour l'application MyCulina
  * Chaines de couleurs / Identité visuelle : Vert Militaire, Vert Sauge, Doré Champagne
  * 
  * Filtres supportés :
