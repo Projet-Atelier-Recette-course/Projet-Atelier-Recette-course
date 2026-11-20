@@ -1,0 +1,231 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>MyCulina - Détails de la recette</title>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="../../model/details.css">
+
+  <script src="../js/details.js" defer></script>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark navbar-myc">
+  <div class="container">
+
+    <a class="navbar-brand fw-bold fs-3" href="index.html">
+      <i class="bi bi-egg-fried"></i> MyCulina
+    </a>
+
+    <button class="navbar-toggler" type="button"
+      data-bs-toggle="collapse" data-bs-target="#menuNavbar"
+      aria-controls="menuNavbar" aria-expanded="false"
+      aria-label="Ouvrir le menu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="menuNavbar">
+      <ul class="navbar-nav ms-auto gap-lg-3 text-center">
+        <li class="nav-item">
+          <a class="nav-link" href="index.html">Accueil</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link active" href="recette.html">Recettes</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="#">Cours</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="#">Favoris</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="#">Profil</a>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+</nav>
+
+
+<!-- CONTENU PRINCIPAL -->
+<main class="container py-5">
+
+  <div class="row g-4">
+
+    <!-- IMAGE -->
+    <div class="col-lg-5">
+
+      <div class="position-relative">
+
+        <img id="imageRecette"
+          src=""
+          class="w-100 rounded-4 detail-img"
+          alt="Image de la recette">
+
+        <a href="recette.html"
+          class="btn btn-light rounded-circle position-absolute top-0 start-0 m-3"
+          aria-label="Retour aux recettes">
+
+          <i class="bi bi-arrow-left"></i>
+
+        </a>
+
+        <button class="btn btn-light rounded-circle position-absolute top-0 end-0 m-3 favori-detail"
+          id="boutonFavori"
+          aria-label="Ajouter aux favoris">
+
+          <i class="bi bi-heart"></i>
+
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <!-- INFORMATIONS -->
+    <div class="col-lg-7">
+
+      <h1 class="fw-bold" id="nomRecette"></h1>
+
+      <p class="text-secondary">
+
+        <i class="bi bi-clock"></i>
+        <span id="tempsRecette"></span>
+
+        &nbsp;
+
+        <i class="bi bi-person-workspace"></i>
+        <span id="difficulteRecette"></span>
+
+        &nbsp;
+
+        <i class="bi bi-people"></i>
+        <span id="portionsRecette"></span>
+
+      </p>
+
+
+      <!-- ESTIMATION DU COÛT -->
+      <div class="bg-warning-subtle rounded-4 p-3 d-flex justify-content-between align-items-center mb-4">
+
+        <div>
+
+          <small class="text-secondary">Estimation du coût</small>
+
+          <p class="fs-3 fw-bold mb-0">
+            <span id="prixRecette"></span>
+
+            <small class="fs-6 fw-normal text-secondary">
+              / personne
+            </small>
+          </p>
+
+        </div>
+
+        <span class="bg-warning rounded-circle d-flex align-items-center justify-content-center piece">
+
+          <i class="bi bi-currency-euro"></i>
+
+        </span>
+
+      </div>
+
+
+      <!-- ONGLETS -->
+      <ul class="nav nav-underline nav-fill border-bottom mb-3">
+
+        <li class="nav-item">
+          <button class="nav-link active"
+            data-bs-toggle="tab"
+            data-bs-target="#ingredients">
+            Ingrédients
+          </button>
+        </li>
+
+        <li class="nav-item">
+          <button class="nav-link"
+            data-bs-toggle="tab"
+            data-bs-target="#etapes">
+            Étapes
+          </button>
+        </li>
+
+        <li class="nav-item">
+          <button class="nav-link"
+            data-bs-toggle="tab"
+            data-bs-target="#infos">
+            Infos
+          </button>
+        </li>
+
+      </ul>
+
+
+      <div class="tab-content">
+
+        <!-- INGRÉDIENTS -->
+        <div class="tab-pane fade show active" id="ingredients">
+
+          <h2 class="h5">
+            Ingrédients
+            <small class="text-secondary fs-6 fw-normal">
+              (pour 2 personnes)
+            </small>
+          </h2>
+
+          <ul class="list-unstyled" id="listeIngredients"></ul>
+
+        </div>
+
+
+        <!-- ÉTAPES -->
+        <div class="tab-pane fade" id="etapes">
+
+          <ol class="list-unstyled" id="listeEtapes"></ol>
+
+        </div>
+
+
+        <!-- INFORMATIONS -->
+        <div class="tab-pane fade" id="infos">
+
+          <p id="informationsRecette"></p>
+
+        </div>
+
+      </div>
+
+
+      <!-- BOUTON COMMENCER -->
+      <a href="#ingredients"
+        class="btn btn-success btn-lg rounded-pill w-100 mt-3">
+
+        Commencer cette recette
+
+      </a>
+
+    </div>
+
+  </div>
+
+</main>
+
+
+<!-- BOOTSTRAP -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

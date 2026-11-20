@@ -1,0 +1,461 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>MyCulina - Mes recettes</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+
+    <!-- CSS personnel -->
+    <link rel="stylesheet" href="../../model/recette.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-myculina sticky-top">
+
+        <div class="container-fluid">
+
+            <!-- Bouton hamburger sur téléphone -->
+            <button class="navbar-toggler mx-auto" type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#menuNavbar"
+                aria-controls="menuNavbar"
+                aria-expanded="false"
+                aria-label="Ouvrir le menu">
+
+                <span class="navbar-toggler-icon"></span>
+
+            </button>
+
+            <!-- Menu de navigation -->
+            <div class="collapse navbar-collapse" id="menuNavbar">
+
+                <ul class="navbar-nav w-100">
+
+                    <li class="nav-item flex-fill">
+                        <a class="nav-link active" href="#accueil">
+                            <i class="bi bi-house-door"></i>
+                            <span>Accueil</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item flex-fill">
+                        <a class="nav-link" href="#recettes">
+                            <i class="bi bi-journal-bookmark"></i>
+                            <span>Recettes</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item flex-fill">
+                        <a class="nav-link" href="cours.html">
+                            <i class="bi bi-book"></i>
+                            <span>Cours</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item flex-fill">
+                        <a class="nav-link" href="#favoris">
+                            <i class="bi bi-heart"></i>
+                            <span>Favoris</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item flex-fill">
+                        <a class="nav-link" href="#profil">
+                            <i class="bi bi-person"></i>
+                            <span>Profil</span>
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+
+    <!-- CONTENU PRINCIPAL -->
+    <main class="container contenu-principal" id="accueil">
+
+
+        <!-- TITRE -->
+        <section class="titre-section">
+
+            <div>
+                <h1>Mes recettes pour vous ✨</h1>
+
+                <p>
+                    Des idées savoureuses adaptées à vos besoins et à votre budget.
+                </p>
+            </div>
+
+            <a href="#profil" class="btn btn-profil">
+                Modifier mon profil
+            </a>
+
+        </section>
+
+
+        <!-- FILTRES -->
+        <section class="filtres" id="favoris">
+
+            <button class="filtre actif" data-filtre="tous">
+                Tous
+            </button>
+
+            <button class="filtre" data-filtre="moins3">
+                Moins de 3 €
+            </button>
+
+            <button class="filtre" data-filtre="3a5">
+                3 – 5 €
+            </button>
+
+            <button class="filtre" data-filtre="5a8">
+                5 – 8 €
+            </button>
+
+            <button class="filtre" data-filtre="rapide">
+                Moins de 30 min
+            </button>
+
+            <button class="filtre" data-filtre="proteines">
+                Riche en protéines
+            </button>
+
+        </section>
+
+
+        <!-- CARTES DES RECETTES -->
+        <section class="row g-4" id="recettes">
+
+
+            <!-- RECETTE 1 -->
+            <div class="col-12 col-sm-6 col-lg-3 recette-item"
+                data-prix="2.80"
+                data-temps="25"
+                data-proteines="oui">
+
+                <div class="card recette-card h-100">
+
+                    <div class="image-container">
+
+                        <img
+                            src="../../view/poulet-roti-rapide-au-citron-et-herbes-presentation.webp"
+                            class="card-img-top"
+                            alt="Poulet citron et herbes rôties">
+
+                        <button class="favori-btn" aria-label="Ajouter aux favoris">
+                            <i class="bi bi-heart"></i>
+                        </button>
+
+                    </div>
+
+                    <div class="card-body">
+
+                        <h5 class="card-title">
+                            Poulet citron & herbes rôties
+                        </h5>
+
+                        <p class="infos-recette">
+                            <i class="bi bi-clock"></i> 25 min
+                            <span>|</span>
+                            <i class="bi bi-person"></i> Facile
+                        </p>
+
+                        <p class="prix">
+                            2,80 € <span>/ personne</span>
+                        </p>
+
+                        <p class="categorie">
+                            <i class="bi bi-lightning-charge"></i>
+                            Riche en protéines
+                        </p>
+
+                        <a href="details.html?id=1" class="btn btn-recette">
+                            Voir la recette <i class="bi bi-arrow-right"></i>
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- RECETTE 2 -->
+            <div class="col-12 col-sm-6 col-lg-3 recette-item"
+                data-prix="2.60"
+                data-temps="20"
+                data-proteines="oui">
+
+                <div class="card recette-card h-100">
+
+                    <div class="image-container">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600"
+                            class="card-img-top"
+                            alt="Bowl quinoa avocat et pois chiches">
+
+                        <button class="favori-btn" aria-label="Ajouter aux favoris">
+                            <i class="bi bi-heart"></i>
+                        </button>
+
+                    </div>
+
+                    <div class="card-body">
+
+                        <h5 class="card-title">
+                            Bowl quinoa, avocat & pois chiches
+                        </h5>
+
+                        <p class="infos-recette">
+                            <i class="bi bi-clock"></i> 20 min
+                            <span>|</span>
+                            <i class="bi bi-person"></i> Facile
+                        </p>
+
+                        <p class="prix">
+                            2,60 € <span>/ personne</span>
+                        </p>
+
+                        <p class="categorie">
+                            Équilibré
+                        </p>
+
+                        <a href="details.html?id=2" class="btn btn-recette">
+                            Voir la recette <i class="bi bi-arrow-right"></i>
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- RECETTE 3 -->
+            <div class="col-12 col-sm-6 col-lg-3 recette-item"
+                data-prix="2.40"
+                data-temps="25"
+                data-proteines="non">
+
+                <div class="card recette-card h-100">
+
+                    <div class="image-container">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=600"
+                            class="card-img-top"
+                            alt="Pâtes crémeuses aux champignons">
+
+                        <button class="favori-btn" aria-label="Ajouter aux favoris">
+                            <i class="bi bi-heart"></i>
+                        </button>
+
+                    </div>
+
+                    <div class="card-body">
+
+                        <h5 class="card-title">
+                            Pâtes crémeuses aux champignons
+                        </h5>
+
+                        <p class="infos-recette">
+                            <i class="bi bi-clock"></i> 25 min
+                            <span>|</span>
+                            <i class="bi bi-person"></i> Facile
+                        </p>
+
+                        <p class="prix">
+                            2,40 € <span>/ personne</span>
+                        </p>
+
+                        <p class="categorie">
+                            <i class="bi bi-feather"></i>
+                            Léger
+                        </p>
+
+                        <a href="details.html?id=3" class="btn btn-recette">
+                            Voir la recette <i class="bi bi-arrow-right"></i>
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- RECETTE 4 -->
+            <div class="col-12 col-sm-6 col-lg-3 recette-item"
+                data-prix="3.20"
+                data-temps="30"
+                data-proteines="oui">
+
+                <div class="card recette-card h-100">
+
+                    <div class="image-container">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?w=600"
+                            class="card-img-top"
+                            alt="Saumon aux légumes et quinoa">
+
+                        <button class="favori-btn" aria-label="Ajouter aux favoris">
+                            <i class="bi bi-heart"></i>
+                        </button>
+
+                    </div>
+
+                    <div class="card-body">
+
+                        <h5 class="card-title">
+                            Saumon aux légumes et quinoa
+                        </h5>
+
+                        <p class="infos-recette">
+                            <i class="bi bi-clock"></i> 30 min
+                            <span>|</span>
+                            <i class="bi bi-person"></i> Moyen
+                        </p>
+
+                        <p class="prix">
+                            3,20 € <span>/ personne</span>
+                        </p>
+
+                        <p class="categorie">
+                            <i class="bi bi-lightning-charge"></i>
+                            Riche en protéines
+                        </p>
+
+                        <a href="details.html?id=4" class="btn btn-recette">
+                            Voir la recette <i class="bi bi-arrow-right"></i>
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- BOOTSTRAP JAVASCRIPT -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+
+    <!-- JAVASCRIPT FAVORIS ET FILTRES -->
+    <script>
+
+        // FAVORIS
+
+        let favoris = JSON.parse(localStorage.getItem("favoris")) || [];
+
+        const boutonsFavoris = document.querySelectorAll(".favori-btn");
+
+        boutonsFavoris.forEach((bouton, index) => {
+
+            if (favoris.includes(index)) {
+                bouton.classList.add("selectionne");
+                bouton.innerHTML = '<i class="bi bi-heart-fill"></i>';
+            }
+
+            bouton.addEventListener("click", function () {
+
+                if (favoris.includes(index)) {
+
+                    favoris = favoris.filter(id => id !== index);
+
+                    bouton.classList.remove("selectionne");
+                    bouton.innerHTML = '<i class="bi bi-heart"></i>';
+
+                } else {
+
+                    favoris.push(index);
+
+                    bouton.classList.add("selectionne");
+                    bouton.innerHTML = '<i class="bi bi-heart-fill"></i>';
+
+                }
+
+                localStorage.setItem("favoris", JSON.stringify(favoris));
+
+            });
+
+        });
+
+
+        // FILTRES
+
+        const filtres = document.querySelectorAll(".filtre");
+        const recettes = document.querySelectorAll(".recette-item");
+
+        filtres.forEach(filtre => {
+
+            filtre.addEventListener("click", function () {
+
+                filtres.forEach(bouton => {
+                    bouton.classList.remove("actif");
+                });
+
+                this.classList.add("actif");
+
+                const type = this.dataset.filtre;
+
+                recettes.forEach(recette => {
+
+                    const prix = Number(recette.dataset.prix);
+                    const temps = Number(recette.dataset.temps);
+                    const proteines = recette.dataset.proteines;
+
+                    let afficher = true;
+
+                    if (type === "moins3") {
+                        afficher = prix < 3;
+                    }
+
+                    if (type === "3a5") {
+                        afficher = prix >= 3 && prix <= 5;
+                    }
+
+                    if (type === "5a8") {
+                        afficher = prix >= 5 && prix <= 8;
+                    }
+
+                    if (type === "rapide") {
+                        afficher = temps < 30;
+                    }
+
+                    if (type === "proteines") {
+                        afficher = proteines === "oui";
+                    }
+
+                    recette.style.display = afficher ? "" : "none";
+
+                });
+
+            });
+
+        });
+
+    </script>
+
+</body>
+</html>
