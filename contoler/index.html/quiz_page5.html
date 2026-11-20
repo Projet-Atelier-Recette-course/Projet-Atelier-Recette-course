@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Quiz MyCulina — Étape 5/5</title>
+  <link rel="stylesheet" href="../../model/quiz.css">
+</head>
+<body>
+  <main class="quiz-container">
+    <header class="quiz-header">
+      <p class="quiz-brand">MyCulina</p>
+      <h1 class="quiz-title">Quels ingrédients avez-vous déjà ?</h1>
+      <p class="quiz-description">Notez les ingrédients que vous avez chez vous : ils pourront être retirés de la liste des courses.</p>
+    </header>
+    <p class="quiz-step-label">Étape 5 sur 5</p>
+    <div class="quiz-progress" aria-label="Progression du quiz">
+      <span class="quiz-progress-step completed"></span><span class="quiz-progress-step completed"></span><span class="quiz-progress-step completed"></span><span class="quiz-progress-step completed"></span><span class="quiz-progress-step active"></span>
+    </div>
+    <form class="quiz-form" data-step="5">
+      <h2 class="quiz-question">Quels ingrédients avez-vous déjà ?</h2>
+      <div class="quiz-field"><label for="ingredients">Ingrédients déjà disponibles</label><textarea class="quiz-textarea" id="ingredients" name="ingredients" placeholder="Ex. : huile d'olive, sel, poivre, farine..."></textarea></div><p class="quiz-help">Séparez les ingrédients par des virgules. Vous pourrez compléter votre liste plus tard.</p>
+      <p class="quiz-error" role="alert" hidden></p>
+      <nav class="quiz-navigation">
+        <a class="quiz-button quiz-button-secondary" href="quiz_page4.html">Précédent</a>
+        <button class="quiz-button" type="submit">Voir les recettes</button>
+      </nav>
+    </form>
+    <footer class="quiz-footer">Vos réponses servent à personnaliser votre préparation de courses.</footer>
+  </main>
+  <script src="quiz.js"></script>
+</body>
+</html>

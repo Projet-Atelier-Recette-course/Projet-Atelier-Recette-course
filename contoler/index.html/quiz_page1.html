@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Quiz MyCulina — Étape 1/5</title>
+  <link rel="stylesheet" href="../../model/quiz.css">
+</head>
+<body>
+  <main class="quiz-container">
+    <header class="quiz-header">
+      <p class="quiz-brand">MyCulina</p>
+      <h1 class="quiz-title">le nombre de personnes ?</h1>
+      <p class="quiz-description">Indique le nombre de personnes pour adapter les quantités des recettes.</p>
+    </header>
+    <p class="quiz-step-label">Étape 1 sur 5</p>
+    <div class="quiz-progress" aria-label="Progression du quiz">
+      <span class="quiz-progress-step active"></span><span class="quiz-progress-step "></span><span class="quiz-progress-step "></span><span class="quiz-progress-step "></span><span class="quiz-progress-step "></span>
+    </div>
+    <form class="quiz-form" data-step="1">
+      <h2 class="quiz-question">le nombre de personnes ?</h2>
+      <div class="quiz-options"><label class="quiz-option"><input type="radio" name="personnes" value="1" required><span>1 personne</span></label><label class="quiz-option"><input type="radio" name="personnes" value="2"><span>2 personnes</span></label><label class="quiz-option"><input type="radio" name="personnes" value="3"><span>3 personnes</span></label><label class="quiz-option"><input type="radio" name="personnes" value="4"><span>4 personnes</span></label><label class="quiz-option"><input type="radio" name="personnes" value="5"><span>5 personnes</span></label><label class="quiz-option"><input type="radio" name="personnes" value="6"><span>6 personnes ou plus</span></label></div>
+      <p class="quiz-error" role="alert" hidden></p>
+      <nav class="quiz-navigation">
+        <a class="quiz-button quiz-button-secondary" href="page_recette.html">Passer le quiz</a>
+        <button class="quiz-button" type="submit">Suivant</button>
+      </nav>
+    </form>
+    <footer class="quiz-footer">Vos réponses servent à personnaliser votre préparation de courses.</footer>
+  </main>
+  <script src="quiz.js"></script>
+</body>
+</html>

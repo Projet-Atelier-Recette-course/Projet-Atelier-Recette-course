@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Quiz MyCulina — Étape 3/5</title>
+  <link rel="stylesheet" href="../../model/quiz.css">
+</head>
+<body>
+  <main class="quiz-container">
+    <header class="quiz-header">
+      <p class="quiz-brand">MyCulina</p>
+      <h1 class="quiz-title">Avez-vous des allergies alimentaires ?</h1>
+      <p class="quiz-description">Cochez toutes les allergies à prendre en compte. Vous pouvez sélectionner plusieurs réponses.</p>
+    </header>
+    <p class="quiz-step-label">Étape 3 sur 5</p>
+    <div class="quiz-progress" aria-label="Progression du quiz">
+      <span class="quiz-progress-step completed"></span><span class="quiz-progress-step completed"></span><span class="quiz-progress-step active"></span><span class="quiz-progress-step "></span><span class="quiz-progress-step "></span>
+    </div>
+    <form class="quiz-form" data-step="3">
+      <h2 class="quiz-question">Avez-vous des allergies alimentaires ?</h2>
+      <div class="quiz-options"><label class="quiz-option"><input type="checkbox" name="allergies" value="gluten"><span>Gluten</span></label><label class="quiz-option"><input type="checkbox" name="allergies" value="lait"><span>Lait</span></label><label class="quiz-option"><input type="checkbox" name="allergies" value="oeufs"><span>Œufs</span></label><label class="quiz-option"><input type="checkbox" name="allergies" value="arachides"><span>Arachides</span></label><label class="quiz-option"><input type="checkbox" name="allergies" value="fruits_a_coque"><span>Fruits à coque</span></label><label class="quiz-option"><input type="checkbox" name="allergies" value="poisson"><span>Poisson</span></label><label class="quiz-option"><input type="checkbox" name="allergies" value="crustaces"><span>Crustacés</span></label><label class="quiz-option"><input type="checkbox" name="allergies" value="soja"><span>Soja</span></label><label class="quiz-option"><input type="checkbox" name="allergies" value="aucune"><span>Aucune allergie</span></label></div><p class="quiz-help">En cas d'allergie, vérifiez toujours les étiquettes et les risques de traces avec les fabricants.</p>
+      <p class="quiz-error" role="alert" hidden></p>
+      <nav class="quiz-navigation">
+        <a class="quiz-button quiz-button-secondary" href="quiz_page2.html">Précédent</a>
+        <button class="quiz-button" type="submit">Suivant</button>
+      </nav>
+    </form>
+    <footer class="quiz-footer">Vos réponses servent à personnaliser votre préparation de courses.</footer>
+  </main>
+  <script src="quiz.js"></script>
+</body>
+</html>

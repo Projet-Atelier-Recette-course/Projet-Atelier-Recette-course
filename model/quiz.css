@@ -1,0 +1,363 @@
+/* quiz.css — Identité gourmande MyCulina : couleurs fraîches, chaudes et naturelles */
+
+:root {
+  --quiz-green: #36845b;
+  --quiz-green-dark: #246744;
+  --quiz-green-light: #e8f3e9;
+  --quiz-orange: #ef9b45;
+  --quiz-orange-light: #fff1df;
+  --quiz-red: #d96b50;
+  --quiz-yellow: #f3c85b;
+  --quiz-text: #29372e;
+  --quiz-muted: #718075;
+  --quiz-border: #e5e9dc;
+  --quiz-bg: #fbf8ef;
+  --quiz-white: #ffffff;
+  --quiz-radius: 22px;
+  --quiz-shadow: 0 18px 48px rgba(69, 83, 47, 0.11);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  position: relative;
+  isolation: isolate;
+  overflow-x: hidden;
+  min-height: 100vh;
+  margin: 0;
+  padding: 1px 0 36px;
+  color: var(--quiz-text);
+  font-family: "Trebuchet MS", Arial, sans-serif;
+  background:
+    radial-gradient(ellipse at 8% 12%, rgba(243, 200, 91, .20), transparent 26rem),
+    radial-gradient(ellipse at 94% 82%, rgba(90, 160, 105, .15), transparent 27rem),
+    var(--quiz-bg);
+}
+
+/* Petites touches décoratives inspirées des ingrédients */
+body::before,
+body::after {
+  position: fixed;
+  z-index: -1;
+  display: block;
+  font-size: clamp(55px, 8vw, 105px);
+  opacity: .13;
+  pointer-events: none;
+}
+body::before {
+  content: "🥑";
+  top: 8%;
+  left: 3%;
+  transform: rotate(-18deg);
+}
+body::after {
+  content: "🍅";
+  right: 3%;
+  bottom: 7%;
+  transform: rotate(16deg);
+}
+
+.quiz-container {
+  position: relative;
+  width: min(760px, calc(100% - 32px));
+  margin: 48px auto;
+  padding: clamp(24px, 5vw, 42px);
+  overflow: hidden;
+  background: rgba(255, 255, 255, .96);
+  border: 1px solid rgba(229, 233, 220, .95);
+  border-radius: var(--quiz-radius);
+  box-shadow: var(--quiz-shadow);
+}
+
+/* Bandeau coloré en haut de la carte */
+.quiz-container::before {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 8px;
+  content: "";
+  background: linear-gradient(90deg, #6da875 0 25%, #f3c85b 25% 50%, #ef9b45 50% 75%, #d96b50 75%);
+}
+
+.quiz-header {
+  margin-bottom: 26px;
+  text-align: center;
+}
+
+.quiz-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 3px 0 14px;
+  padding: 8px 15px;
+  color: var(--quiz-green-dark);
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  background: var(--quiz-green-light);
+  border-radius: 999px;
+}
+.quiz-brand::before { content: "🌿"; font-size: 17px; }
+
+.quiz-title {
+  margin: 0 0 11px;
+  font-size: clamp(26px, 4.5vw, 36px);
+  font-weight: 800;
+  letter-spacing: -.7px;
+  line-height: 1.16;
+}
+
+.quiz-description {
+  max-width: 540px;
+  margin: 0 auto;
+  color: var(--quiz-muted);
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+.quiz-step-label {
+  margin: 25px 0 11px;
+  color: var(--quiz-green-dark);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1.1px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.quiz-progress {
+  display: flex;
+  gap: 8px;
+  margin: 0 0 34px;
+}
+.quiz-progress-step {
+  height: 8px;
+  flex: 1;
+  border-radius: 99px;
+  background: #edf0e8;
+}
+.quiz-progress-step.active,
+.quiz-progress-step.completed {
+  background: linear-gradient(90deg, #6da875, var(--quiz-green));
+  box-shadow: 0 2px 7px rgba(54, 132, 91, .18);
+}
+
+.quiz-question {
+  margin: 0 0 20px;
+  font-size: clamp(19px, 3vw, 23px);
+  font-weight: 800;
+  line-height: 1.35;
+}
+.quiz-question::before {
+  display: inline-block;
+  margin-right: 9px;
+  content: "✦";
+  color: var(--quiz-orange);
+}
+
+/* Choix façon petites cartes gourmandes */
+.quiz-options {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 13px;
+}
+
+.quiz-option {
+  position: relative;
+  display: flex;
+  min-height: 72px;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 17px;
+  border: 1.5px solid var(--quiz-border);
+  border-radius: 16px;
+  background: #fffefa;
+  cursor: pointer;
+  transition: transform .18s ease, border-color .18s ease,
+              background .18s ease, box-shadow .18s ease;
+}
+.quiz-option::before {
+  display: grid;
+  width: 37px;
+  height: 37px;
+  flex: 0 0 37px;
+  place-items: center;
+  border-radius: 12px;
+  background: var(--quiz-orange-light);
+  font-size: 20px;
+  content: "🥕";
+}
+.quiz-form[data-step="1"] .quiz-option:nth-child(1)::before { content: "🍽️"; }
+.quiz-form[data-step="1"] .quiz-option:nth-child(2)::before { content: "🥗"; }
+.quiz-form[data-step="1"] .quiz-option:nth-child(3)::before { content: "🍲"; }
+.quiz-form[data-step="1"] .quiz-option:nth-child(4)::before { content: "👨‍👩‍👧"; }
+.quiz-form[data-step="1"] .quiz-option:nth-child(5)::before { content: "👨‍👩‍👧‍👦"; }
+.quiz-form[data-step="1"] .quiz-option:nth-child(6)::before { content: "🎉"; }
+
+.quiz-form[data-step="2"] .quiz-option:nth-child(1)::before { content: "🪙"; }
+.quiz-form[data-step="2"] .quiz-option:nth-child(2)::before { content: "🧺"; }
+.quiz-form[data-step="2"] .quiz-option:nth-child(3)::before { content: "💶"; }
+.quiz-form[data-step="2"] .quiz-option:nth-child(4)::before { content: "⭐"; }
+
+.quiz-form[data-step="3"] .quiz-option:nth-child(1)::before { content: "🥜"; }
+.quiz-form[data-step="3"] .quiz-option:nth-child(2)::before { content: "🥛"; }
+.quiz-form[data-step="3"] .quiz-option:nth-child(3)::before { content: "🌾"; }
+.quiz-form[data-step="3"] .quiz-option:nth-child(4)::before { content: "🥚"; }
+.quiz-form[data-step="3"] .quiz-option:nth-child(5)::before { content: "🦐"; }
+.quiz-form[data-step="3"] .quiz-option:nth-child(6)::before { content: "🍓"; }
+
+.quiz-form[data-step="4"] .quiz-option:nth-child(1)::before { content: "🥦"; }
+.quiz-form[data-step="4"] .quiz-option:nth-child(2)::before { content: "🌱"; }
+.quiz-form[data-step="4"] .quiz-option:nth-child(3)::before { content: "🐟"; }
+.quiz-form[data-step="4"] .quiz-option:nth-child(4)::before { content: "🍗"; }
+
+.quiz-form[data-step="5"] .quiz-option:nth-child(1)::before { content: "🥕"; }
+.quiz-form[data-step="5"] .quiz-option:nth-child(2)::before { content: "🧅"; }
+.quiz-form[data-step="5"] .quiz-option:nth-child(3)::before { content: "🍚"; }
+.quiz-form[data-step="5"] .quiz-option:nth-child(4)::before { content: "🧂"; }
+
+.quiz-option:hover {
+  border-color: #9abd9b;
+  background: #fff;
+  box-shadow: 0 7px 18px rgba(69, 83, 47, .07);
+  transform: translateY(-2px);
+}
+.quiz-option:has(input:checked) {
+  border-color: var(--quiz-green);
+  background: #eff7ed;
+  box-shadow: 0 0 0 3px rgba(54, 132, 91, .09);
+}
+.quiz-option input {
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  flex: 0 0 auto;
+  accent-color: var(--quiz-green);
+}
+.quiz-option span {
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+.quiz-option input:focus-visible {
+  outline: 3px solid rgba(54, 132, 91, .25);
+  outline-offset: 3px;
+}
+
+/* Champs */
+.quiz-field {
+  display: block;
+  width: 100%;
+  margin: 8px 0 18px;
+}
+.quiz-field label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 14px;
+  font-weight: 800;
+}
+.quiz-input,
+.quiz-select,
+.quiz-textarea {
+  display: block;
+  width: 100%;
+  padding: 14px 15px;
+  border: 1.5px solid var(--quiz-border);
+  border-radius: 13px;
+  background: #fffefa;
+  color: var(--quiz-text);
+  font: inherit;
+}
+.quiz-input:focus,
+.quiz-select:focus,
+.quiz-textarea:focus {
+  border-color: var(--quiz-green);
+  outline: 3px solid rgba(54, 132, 91, .12);
+}
+.quiz-textarea { min-height: 110px; resize: vertical; }
+
+.quiz-navigation {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 32px;
+}
+.quiz-button {
+  display: inline-flex;
+  min-height: 49px;
+  align-items: center;
+  justify-content: center;
+  padding: 13px 24px;
+  border: 1px solid var(--quiz-green);
+  border-radius: 13px;
+  background: linear-gradient(135deg, #438f60, #2f7950);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 800;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: 0 5px 12px rgba(47, 121, 80, .16);
+  transition: transform .18s ease, box-shadow .18s ease, filter .18s ease;
+}
+.quiz-button:hover {
+  filter: saturate(1.1);
+  box-shadow: 0 8px 18px rgba(47, 121, 80, .22);
+  transform: translateY(-1px);
+}
+.quiz-button:focus-visible {
+  outline: 3px solid rgba(54, 132, 91, .25);
+  outline-offset: 3px;
+}
+.quiz-button-secondary {
+  border-color: #e7dfce;
+  background: #fff8eb;
+  color: #795b32;
+  box-shadow: none;
+}
+.quiz-button-secondary:hover {
+  border-color: #e9c78f;
+  background: #fff1d9;
+  color: #684b27;
+  box-shadow: none;
+}
+.quiz-button:disabled { opacity: .5; cursor: not-allowed; }
+
+.quiz-help {
+  margin: 12px 0 0;
+  color: var(--quiz-muted);
+  font-size: 13px;
+  line-height: 1.5;
+}
+.quiz-error {
+  margin-top: 12px;
+  color: #b33e2b;
+  font-size: 14px;
+  font-weight: 700;
+}
+.quiz-footer {
+  margin-top: 25px;
+  padding-top: 17px;
+  border-top: 1px solid #f0eee5;
+  color: var(--quiz-muted);
+  font-size: 12px;
+  line-height: 1.5;
+  text-align: center;
+}
+.quiz-footer::before { content: "🥬  "; }
+
+@media (max-width: 600px) {
+  body::before { top: 3%; left: -12px; }
+  body::after { right: -12px; bottom: 3%; }
+  .quiz-container {
+    width: min(100% - 20px, 520px);
+    margin: 18px auto;
+    padding: 25px 18px;
+    border-radius: 18px;
+  }
+  .quiz-options { grid-template-columns: 1fr; gap: 10px; }
+  .quiz-option { min-height: 64px; }
+  .quiz-navigation { flex-direction: column-reverse; }
+  .quiz-button { width: 100%; }
+}

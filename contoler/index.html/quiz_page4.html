@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Quiz MyCulina — Étape 4/5</title>
+  <link rel="stylesheet" href="../../model/quiz.css">
+</head>
+<body>
+  <main class="quiz-container">
+    <header class="quiz-header">
+      <p class="quiz-brand">MyCulina</p>
+      <h1 class="quiz-title">Quel est votre régime alimentaire ?</h1>
+      <p class="quiz-description">Choisissez le type d'alimentation à privilégier pour les recettes proposées.</p>
+    </header>
+    <p class="quiz-step-label">Étape 4 sur 5</p>
+    <div class="quiz-progress" aria-label="Progression du quiz">
+      <span class="quiz-progress-step completed"></span><span class="quiz-progress-step completed"></span><span class="quiz-progress-step completed"></span><span class="quiz-progress-step active"></span><span class="quiz-progress-step "></span>
+    </div>
+    <form class="quiz-form" data-step="4">
+      <h2 class="quiz-question">Quel est votre régime alimentaire ?</h2>
+      <div class="quiz-options"><label class="quiz-option"><input type="radio" name="regime" value="omnivore" required><span>De tout (omnivore)</span></label><label class="quiz-option"><input type="radio" name="regime" value="vegetarien"><span>Végétarien</span></label><label class="quiz-option"><input type="radio" name="regime" value="vegetalien"><span>Végétalien</span></label><label class="quiz-option"><input type="radio" name="regime" value="pescetarien"><span>Pescétarien</span></label><label class="quiz-option"><input type="radio" name="regime" value="halal"><span>Halal</span></label></div>
+      <p class="quiz-error" role="alert" hidden></p>
+      <nav class="quiz-navigation">
+        <a class="quiz-button quiz-button-secondary" href="quiz_page3.html">Précédent</a>
+        <button class="quiz-button" type="submit">Suivant</button>
+      </nav>
+    </form>
+    <footer class="quiz-footer">Vos réponses servent à personnaliser votre préparation de courses.</footer>
+  </main>
+  <script src="quiz.js"></script>
+</body>
+</html>

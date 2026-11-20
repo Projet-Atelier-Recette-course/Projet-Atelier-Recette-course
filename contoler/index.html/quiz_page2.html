@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Quiz MyCulina — Étape 2/5</title>
+  <link rel="stylesheet" href="../../model/quiz.css">
+</head>
+<body>
+  <main class="quiz-container">
+    <header class="quiz-header">
+      <p class="quiz-brand">MyCulina</p>
+      <h1 class="quiz-title">Quel est votre budget ?</h1>
+      <p class="quiz-description">Choisissez le budget total que vous souhaitez consacrer aux courses pour ce repas.</p>
+    </header>
+    <p class="quiz-step-label">Étape 2 sur 5</p>
+    <div class="quiz-progress" aria-label="Progression du quiz">
+      <span class="quiz-progress-step completed"></span><span class="quiz-progress-step active"></span><span class="quiz-progress-step "></span><span class="quiz-progress-step "></span><span class="quiz-progress-step "></span>
+    </div>
+    <form class="quiz-form" data-step="2">
+      <h2 class="quiz-question">Quel est votre budget ?</h2>
+      <div class="quiz-field"><label for="budget">Budget total (€)</label><input class="quiz-input" id="budget" name="budget" type="number" min="1" step="0.50" placeholder="Ex. : 30" required></div><p class="quiz-help">Indiquez le montant maximal que vous souhaitez dépenser.</p>
+      <p class="quiz-error" role="alert" hidden></p>
+      <nav class="quiz-navigation">
+        <a class="quiz-button quiz-button-secondary" href="quiz_page1.html">Précédent</a>
+        <button class="quiz-button" type="submit">Suivant</button>
+      </nav>
+    </form>
+    <footer class="quiz-footer">Vos réponses servent à personnaliser votre préparation de courses.</footer>
+  </main>
+  <script src="quiz.js"></script>
+</body>
+</html>
