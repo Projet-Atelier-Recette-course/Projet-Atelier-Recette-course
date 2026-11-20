@@ -6,7 +6,7 @@ const recettes = {
     // RECETTE 1
     1: {
         nom: "Poulet citron & herbes rôties",
-        image: "../../view/poulet-roti-rapide-au-citron-et-herbes-presentation.webp",
+        image: "../../images/poulet-roti-au-citron-et-herbes-de-provence.jpg",
         temps: "25 min",
         difficulte: "Facile",
         portions: "2 portions",
