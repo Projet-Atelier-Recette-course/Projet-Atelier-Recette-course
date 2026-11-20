@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MyCulina - Profil</title>
+  <link rel="stylesheet" href="../../model/profil.css">
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-dot"></span>
+      <h1>MyCulina</h1>
+      <span class="tag-pill">Profil</span>
+    </div>
+    <button id="btnDeconnexion" class="btn-ghost cache" type="button" onclick="deconnexion()">Déconnexion</button>
+  </header>
+
+  <main class="container">
+
+    <!-- Connexion / Inscription -->
+    <section id="partieAuth" class="card auth-card">
+      <h2 id="titreAuth">Connexion</h2>
+      <p class="subtitle">Accède à ton espace personnel, ton planning et ton suivi.</p>
+
+      <div id="formConnexion">
+        <label for="loginEmail">Email</label>
+        <input type="email" id="loginEmail" placeholder="exemple@gmail.com">
+
+        <label for="loginMdp">Mot de passe</label>
+        <input type="password" id="loginMdp" placeholder="8 caractères minimum">
+
+        <button class="btn-primary" type="button" onclick="connexion()">Se connecter</button>
+
+        <div class="center-link">
+          <button type="button" class="link-btn" onclick="changerFormulaire('inscription')">Créer un compte</button>
+        </div>
+      </div>
+
+      <div id="formInscription" class="cache">
+        <label for="regNom">Nom</label>
+        <input type="text" id="regNom" placeholder="Ton nom">
+
+        <label for="regEmail">Email</label>
+        <input type="email" id="regEmail" placeholder="exemple@gmail.com">
+
+        <label for="regMdp">Mot de passe (8 caractères min.)</label>
+        <input type="password" id="regMdp" placeholder="Au moins 8 caractères">
+
+        <button class="btn-primary" type="button" onclick="inscription()">S'inscrire</button>
+
+        <div class="center-link">
+          <button type="button" class="link-btn" onclick="changerFormulaire('connexion')">Déjà un compte ? Connexion</button>
+        </div>
+      </div>
+
+      <p id="messageAuth" class="message"></p>
+    </section>
+
+    <!-- Informations de base -->
+    <section id="partieInfosBase" class="card auth-card cache">
+      <h2>Mes informations</h2>
+      <p class="subtitle">Saisis tes informations directement au clavier.</p>
+
+      <label for="infoNom">Nom</label>
+      <input type="text" id="infoNom" placeholder="Ex : Sarah">
+
+      <label for="infoAge">Âge</label>
+      <input type="number" id="infoAge" placeholder="Ex : 22">
+
+      <label for="infoTaille">Taille (cm)</label>
+      <input type="number" id="infoTaille" placeholder="Ex : 165">
+
+      <label for="infoPoids">Poids (kg)</label>
+      <input type="number" id="infoPoids" placeholder="Ex : 60">
+
+      <label for="infoObjectif">Objectif principal</label>
+      <input type="text" id="infoObjectif" placeholder="Ex : Manger plus sain et équilibré">
+
+      <button class="btn-primary" type="button" onclick="enregistrerInfosBase()">Enregistrer</button>
+      <p id="messageInfos" class="message erreur-texte"></p>
+    </section>
+
+    <!-- Vue Profil complète -->
+    <section id="partieProfilComplet" class="stack cache">
+
+      <div class="two-cols">
+        <div class="card">
+          <div class="card-head">
+            <h2>Mon profil</h2>
+            <button class="btn-soft" type="button" onclick="modifierInfos()">Modifier</button>
+          </div>
+          <div id="resumeInfos" class="summary-box"></div>
+        </div>
+
+        <div class="card">
+          <h2>Équilibre healthy</h2>
+          <div class="progress-top">
+            <span>Score de la semaine</span>
+            <strong id="texteHealthy">0%</strong>
+          </div>
+          <div class="progress-track">
+            <div id="barreHealthy" class="progress-fill"></div>
+          </div>
+          <div id="bilanHealthy" class="summary-box top-space"></div>
+        </div>
+      </div>
+
+      <!-- Budget -->
+      <div class="card">
+        <div class="card-head">
+          <h2>Budget repas</h2>
+          <span id="statutBudget" class="hint-chip">Calcul automatique</span>
+        </div>
+
+        <div class="budget-stats">
+          <div class="stat-tile">
+            <span class="stat-label">Total semaine</span>
+            <strong id="totalSemaine" class="stat-value">0,00 €</strong>
+          </div>
+          <div class="stat-tile stat-tile-accent">
+            <span class="stat-label">Estimation mois (×4 sem.)</span>
+            <strong id="totalMois" class="stat-value">0,00 €</strong>
+          </div>
+          <div class="stat-tile">
+            <span class="stat-label">Moyenne / jour</span>
+            <strong id="moyenneJour" class="stat-value">0,00 €</strong>
+          </div>
+        </div>
+      </div>
+
+      <!-- Organiser ma semaine -->
+      <div class="card">
+        <div class="card-head">
+          <h2>Organiser ma semaine</h2>
+          <span class="hint-chip">Plat prévu, budget (€) et Healthy</span>
+        </div>
+
+        <div id="listeSemaine" class="week-grid"></div>
+
+        <button class="btn-primary" type="button" onclick="enregistrerSemaine()">Enregistrer la semaine</button>
+        <p id="messageSemaine" class="message"></p>
+      </div>
+
+      <!-- Évaluation -->
+      <div class="card">
+        <h2>Avis sur l'application</h2>
+
+        <div class="two-cols">
+          <div>
+            <label for="noteApp">Note</label>
+            <select id="noteApp">
+              <option value="">Choisir une note</option>
+              <option value="5">5 / 5 - Excellent</option>
+              <option value="4">4 / 5 - Très bien</option>
+              <option value="3">3 / 5 - Bien</option>
+              <option value="2">2 / 5 - Moyen</option>
+              <option value="1">1 / 5 - À améliorer</option>
+            </select>
+          </div>
+          <div>
+            <label for="avisApp">Commentaire</label>
+            <input type="text" id="avisApp" placeholder="Ex : Très clair et pratique">
+          </div>
+        </div>
+
+        <button class="btn-secondary" type="button" onclick="enregistrerEvaluation()">Envoyer l'avis</button>
+        <p id="messageEval" class="message"></p>
+      </div>
+
+    </section>
+
+  </main>
+
+  <nav class="bottom-nav">
+    <a href="../contoler/index.html/page_recette.html" class="nav-item">Recettes</a>
+    <a href="../contoler/index.html/page_Details.html" class="nav-item">Détails</a>
+    <button type="button" class="nav-item active" onclick="ouvrirVueProfil()">Profil</button>
+  </nav>
+
+  <script src="../js/profil.js"></script>
+</body>
+</html>
