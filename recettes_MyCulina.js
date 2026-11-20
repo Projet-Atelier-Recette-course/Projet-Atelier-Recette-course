@@ -60,7 +60,7 @@ export const RECIPES_DATA = [
     ],
 
     nutritionInfo: {
-      calories: 480,
+      calories: 380,
       proteins: 42, // grammes
       carbs: 30, // grammes
       fat: 18 // grammes
