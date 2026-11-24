@@ -1,76 +1,135 @@
 
-// RÉCUPÉRER LES FAVORIS ENREGISTRÉS
+// =============================
+// FAVORIS
+// =============================
+
+// RÉCUPÉRER LES FAVORIS
 
 let favoris = JSON.parse(localStorage.getItem("favoris")) || [];
 
-
-// METTRE À JOUR LES CŒURS
-
-function afficherFavoris() {
-
-    const boutons = document.querySelectorAll(".favori-btn");
-
-    boutons.forEach(bouton => {
-
-        const id = bouton.dataset.favori;
-        const coeur = bouton.querySelector("i");
-
-        if (favoris.includes(id)) {
-
-            coeur.classList.remove("bi-heart");
-            coeur.classList.add("bi-heart-fill");
-
-            bouton.classList.add("actif");
-
-        } else {
-
-            coeur.classList.remove("bi-heart-fill");
-            coeur.classList.add("bi-heart");
-
-            bouton.classList.remove("actif");
-
-        }
-
-    });
-
-}
+const boutonsFavoris = document.querySelectorAll(".favori-btn");
 
 
-// CLIQUER SUR UN FAVORI
+// AFFICHER ET GÉRER LES FAVORIS
 
-document.querySelectorAll(".favori-btn").forEach(bouton => {
+boutonsFavoris.forEach((bouton, index) => {
 
-    bouton.addEventListener("click", function() {
+    // ID DE LA RECETTE (1 À 4)
 
-        const id = this.dataset.favori;
+    const id = String(index + 1);
+
+    // AFFICHER LE FAVORI SI DÉJÀ ENREGISTRÉ
+
+    if (favoris.includes(id)) {
+
+        bouton.classList.add("selectionne");
+
+        bouton.innerHTML = '<i class="bi bi-heart-fill"></i>';
+
+    }
+
+
+    // CLIQUER SUR LE CŒUR
+
+    bouton.addEventListener("click", function () {
 
         if (favoris.includes(id)) {
-
-            // RETIRER DES FAVORIS
 
             favoris = favoris.filter(favori => favori !== id);
 
-        } else {
+            bouton.classList.remove("selectionne");
 
-            // AJOUTER AUX FAVORIS
+            bouton.innerHTML = '<i class="bi bi-heart"></i>';
+
+        } else {
 
             favoris.push(id);
 
+            bouton.classList.add("selectionne");
+
+            bouton.innerHTML = '<i class="bi bi-heart-fill"></i>';
+
         }
 
-        // ENREGISTRER LES FAVORIS
+        // SAUVEGARDER
 
         localStorage.setItem("favoris", JSON.stringify(favoris));
-
-        // ACTUALISER LES CŒURS
-
-        afficherFavoris();
 
     });
 
 });
 
 
-// AFFICHAGE AU CHARGEMENT
+// =============================
+// FILTRES
+// =============================
 
-afficherFavoris();
+const filtres = document.querySelectorAll(".filtre");
+
+const recettesAffichees = document.querySelectorAll(".recette-item");
+
+
+filtres.forEach(filtre => {
+
+    filtre.addEventListener("click", function () {
+
+        filtres.forEach(bouton => {
+
+            bouton.classList.remove("actif");
+
+        });
+
+        this.classList.add("actif");
+
+        const type = this.dataset.filtre;
+
+
+        recettesAffichees.forEach(recette => {
+
+            const prix = Number(recette.dataset.prix);
+
+            const temps = Number(recette.dataset.temps);
+
+            const proteines = recette.dataset.proteines;
+
+            let afficher = true;
+
+
+            if (type === "moins3") {
+
+                afficher = prix < 3;
+
+            }
+
+            if (type === "3a5") {
+
+                afficher = prix >= 3 && prix <= 5;
+
+            }
+
+            if (type === "5a8") {
+
+                afficher = prix >= 5 && prix <= 8;
+
+            }
+
+            if (type === "rapide") {
+
+                afficher = temps < 30;
+
+            }
+
+            if (type === "proteines") {
+
+                afficher = proteines === "oui";
+
+            }
+
+
+            recette.style.display = afficher ? "" : "none";
+
+        });
+
+    });
+
+});

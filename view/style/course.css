@@ -1,0 +1,304 @@
+
+/* ============================= */
+/* STYLE GÉNÉRAL */
+/* ============================= */
+
+body {
+    background-color: #fbf7ee;
+    color: #26352a;
+    min-height: 100vh;
+}
+
+
+/* ============================= */
+/* NAVBAR */
+/* ============================= */
+
+.navbar-myculina {
+    background-color: #438b5b;
+}
+
+.navbar-myculina .navbar-brand {
+    color: white;
+}
+
+.navbar-myculina .nav-link {
+    color: white;
+    transition: 0.3s;
+}
+
+.navbar-myculina .nav-link:hover {
+    color: #e0edda;
+}
+
+.navbar-myculina .nav-link.active {
+    color: white;
+    font-weight: bold;
+}
+
+
+/* ============================= */
+/* TITRE */
+/* ============================= */
+
+.titre-page {
+    color: #26352a;
+}
+
+
+/* ============================= */
+/* CARTES RECETTES */
+/* ============================= */
+
+.recette-course {
+    border: 1px solid #e8e6dd;
+    border-radius: 18px;
+    overflow: hidden;
+
+    box-shadow: 0 5px 18px rgba(35, 48, 35, 0.07);
+
+    transition: 0.3s;
+}
+
+.recette-course:hover {
+    transform: translateY(-3px);
+
+    box-shadow: 0 8px 22px rgba(35, 48, 35, 0.12);
+}
+
+
+/* IMAGE */
+
+.photo-recette {
+    width: 100%;
+    height: 100%;
+    min-height: 220px;
+
+    object-fit: cover;
+}
+
+
+/* NOM RECETTE */
+
+.nom-recette {
+    color: #26352a;
+    font-weight: bold;
+}
+
+
+/* PRIX */
+
+.prix-recette {
+    color: #438b5b;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+
+/* ============================= */
+/* BOUTONS QUANTITÉ RECETTE */
+/* ============================= */
+
+.controle-quantite {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+
+    background-color: #f2f5ed;
+
+    border-radius: 30px;
+
+    padding: 5px 8px;
+}
+
+.controle-quantite button {
+    border: none;
+
+    background-color: #438b5b;
+    color: white;
+
+    width: 32px;
+    height: 32px;
+
+    border-radius: 50%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    transition: 0.2s;
+}
+
+.controle-quantite button:hover {
+    background-color: #326c46;
+}
+
+
+/* ============================= */
+/* INGREDIENTS */
+/* ============================= */
+
+.ligne-ingredient {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 12px;
+
+    padding: 10px 0;
+
+    border-bottom: 1px solid #efeee8;
+}
+
+.ligne-ingredient:last-child {
+    border-bottom: none;
+}
+
+.nom-ingredient {
+    font-size: 0.95rem;
+}
+
+
+/* ============================= */
+/* BOUTONS + ET - INGREDIENTS */
+/* ============================= */
+
+.controle-ingredient {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+
+    flex-shrink: 0;
+}
+
+.controle-ingredient button {
+    border: none;
+
+    background-color: #438b5b;
+    color: white;
+
+    width: 28px;
+    height: 28px;
+
+    border-radius: 50%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    transition: 0.2s;
+}
+
+.controle-ingredient button:hover {
+    background-color: #326c46;
+}
+
+
+/* ============================= */
+/* RÉCAPITULATIF DU PRIX */
+/* ============================= */
+
+.resume-courses {
+    background-color: #fff3c4;
+
+    border-radius: 18px;
+
+    padding: 24px;
+
+    position: sticky;
+    bottom: 15px;
+
+    box-shadow: 0 5px 20px rgba(35, 48, 35, 0.10);
+
+    z-index: 10;
+}
+
+
+/* ============================= */
+/* LISTE VIDE */
+/* ============================= */
+
+.coeur-vide {
+    font-size: 3rem;
+    color: #438b5b;
+}
+
+
+/* ============================= */
+/* BOUTONS BOOTSTRAP */
+/* ============================= */
+
+.btn-success {
+    background-color: #438b5b;
+    border-color: #438b5b;
+}
+
+.btn-success:hover {
+    background-color: #326c46;
+    border-color: #326c46;
+}
+
+
+/* ============================= */
+/* TABLETTES */
+/* ============================= */
+
+@media (max-width: 991px) {
+
+    .titre-page {
+        font-size: 1.8rem;
+    }
+
+    .photo-recette {
+        min-height: 190px;
+        max-height: 230px;
+    }
+
+}
+
+
+/* ============================= */
+/* TÉLÉPHONES */
+/* ============================= */
+
+@media (max-width: 576px) {
+
+    main.container {
+        padding-top: 25px !important;
+    }
+
+    .titre-page {
+        font-size: 1.5rem;
+    }
+
+    .recette-course .card-body {
+        padding: 18px !important;
+    }
+
+    .ligne-ingredient {
+        flex-wrap: wrap;
+    }
+
+    .nom-ingredient {
+        font-size: 0.9rem;
+    }
+
+    .resume-courses {
+        padding: 18px;
+    }
+
+    .resume-courses button {
+        width: 100%;
+        font-size: 1rem;
+    }
+
+    .controle-quantite {
+        gap: 8px;
+    }
+
+    .photo-recette {
+        height: 180px;
+        min-height: 180px;
+    }
+
+}
